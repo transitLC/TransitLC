@@ -22,7 +22,7 @@
 
 #include <fitsio.h>
 
-#include "CLIcore.h"
+#include "CommandLineInterface/CLIcore.h"
 #include "COREMOD_iofits/COREMOD_iofits.h"
 #include "COREMOD_memory/COREMOD_memory.h"
 #include "COREMOD_arith/COREMOD_arith.h"
@@ -66,10 +66,10 @@ int_fast8_t TransitLC_run_cli()
 
 
 
-int initlib_transitlc()
+void __attribute__ ((constructor)) initlib_TransitLC()
 {
-	printf("Initializing library TransitLC\n");
 	init_TransitLC();
+	printf(" ...... Loading module %s\n", __FILE__);
 }
 
 
